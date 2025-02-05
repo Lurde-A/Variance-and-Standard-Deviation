@@ -19,3 +19,49 @@ print("The third student is " +str(round(difference_three, 2)) + " percentage po
 print("The fourth student is " +str(round(difference_four, 2)) + " percentage points away from the mean.")
 print("The fifth student is " +str(round(difference_five, 2)) + " percentage points away from the mean.")
 
+                                        AVERAGE DISTANCES
+  3. Sum the five variables difference_one through difference_five and store the result in the variable difference_sum.
+//
+difference_sum = difference_one + difference_two + difference_three + difference_four + difference_five
+  4. Divide difference_sum by 5 and store the result in the variable named average_difference. Think about the answer. Do you think it accurately captures the spread of your data?
+//
+print("The sum of the differences is " + str(format(difference_sum, ".28f")))                RESULT: The sum of the differences is 0.0000000000000142108547152020
+print("The average difference is " + str(format(average_difference, ".28f")))                RESULT: The average difference is     0.0000000000000028421709430404
+
+                                        SQUARE THE DIFFERENCES
+  5. Square each of the values stored in the variables difference_one through difference_five. In Python, to square a number, use the ** operator. The code below gives you an example of 
+squaring the variable a. squared_num = a ** 2
+//
+difference_one = (88 - mean)**2
+difference_two = (82 - mean)**2
+difference_three = (85 - mean)**2
+difference_four = (84 - mean)**2
+difference_five = (90 - mean)**2
+difference_sum = difference_one + difference_two + difference_three + difference_four + difference_five
+variance = difference_sum / 5
+print("The sum of the squared differences is " + str(difference_sum))                        RESULT: The sum of the squared differences is 40.8
+print("The variance is " + str(variance))                                                    RESULT: The variance is 8.16
+
+                                        VARIANVE IN NUMPY
+  6. Scroll down in the code to find where we’ve definied teacher_one_variance and teacher_two_variance. Set those variables equal to the variance of each dataset using the np.var() function.
+//
+import numpy as np
+import matplotlib.pyplot as plt
+import codecademylib3_seaborn
+teacher_one_grades = [80.24, 81.15, 81.29, 82.12, 82.52, 82.54, 82.76, 83.37, 83.42, 83.45, 83.47, 83.79, 83.91, 83.98, 84.03, 84.69, 84.74, 84.89, 84.95, 84.95, 85.02, 85.18, 85.53, 86.29, 
+86.83, 87.29, 87.47, 87.62, 88.04, 88.5]
+teacher_two_grades = [65.82, 70.77, 71.46, 73.63, 74.62, 76.53, 76.86, 77.06, 78.46, 79.81, 80.64, 81.61, 81.84, 83.67, 84.44, 84.73, 84.74, 85.15, 86.55, 88.06, 88.53, 90.12, 91.27, 91.62, 
+92.86, 94.37, 95.64, 95.99, 97.69, 104.4]
+teacher_one_variance = np.var(teacher_one_grades)
+teacher_two_variance = np.var(teacher_two_grades)
+plt.hist(teacher_one_grades, alpha = 0.75, label = "Teacher 1 Scores", bins = 7)
+plt.hist(teacher_two_grades, alpha = 0.5, label = "Teacher 2 Scores", bins = 30)
+plt.title("Student test grades in two different classes")
+plt.xlabel("Grades")
+plt.legend()
+plt.show()
+print("The mean of the test scores in teacher one's class is " + str(np.mean(teacher_one_grades)))    RESULT: The mean of the test scores in teacher one's class is 84.46766666666666
+print("The mean of the test scores in teacher two's class is " + str(np.mean(teacher_two_grades)))    RESULT: The mean of the test scores in teacher two's class is 84.29799999999999
+print("The variance of the test scores in teacher one's class is " +str(teacher_one_variance))        RESULT: The variance of the test scores in teacher one's class is 4.266517888888889
+print("The variance of the test scores in teacher two's class is " +str(teacher_two_variance))        RESULT: The variance of the test scores in teacher two's class is 78.13198933333337
+
