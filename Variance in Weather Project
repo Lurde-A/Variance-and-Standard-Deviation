@@ -1,1 +1,6 @@
-
+                                        EXPLORE THE DATA
+  1. All of the weather data is stored in a variable named london_data. Print the first few rows of the dataset by calling print(london_data.head()). Take a look at the browser to see 
+the columns of this dataset. Here are two questions to ask yourself: How often were measurements taken?Which columns might be the most useful when thinking about planning a trip. If you want 
+to see different rows of the data, you can try something like this: print(london_data.iloc[100:200]) This will print rows 100 through 199. Comment out these print statements after looking 
+through the results.
+//
