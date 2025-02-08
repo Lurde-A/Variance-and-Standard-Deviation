@@ -1,2 +1,113 @@
-                                        VARIANCE RECAP
-  1. 
+                                        STANDARD DEVIATION
+GIVEN:
+import numpy as np
+from data import nba_data, okcupid_data
+nba_variance = np.var(nba_data)
+okcupid_variance = np.var(okcupid_data)
+#Change these variables to be the standard deviation of each dataset.
+nba_standard_deviation = 0
+okcupid_standard_deviation = 0
+#IGNORE CODE BELOW HERE
+print("The standard deviation of the NBA dataset is " +str(nba_standard_deviation))
+print("The standard deviation of the OkCupid dataset is " + str(okcupid_standard_deviation))
+  1. We’ve written some code that calculates the variance of the NBA dataset and the OkCupid dataset. The variances are stored in variables named nba_variance and okcupid_variance.
+Calculate the standard deviation by taking the square root of nba_variance and store it in the variable nba_standard_deviation (on line 8). Do the same for the variable 
+okcupid_standard_deviation (on line 9).
+//
+nba_standard_deviation = nba_variance**0.5                                RESULT: "The standard deviation of the NBA dataset is 3.6501704069810224"
+okcupid_standard_deviation = okcupid_variance**0.5                        RESULT: "The standard deviation of the OkCupid dataset is 3.924360330041063"
+
+                                        STANDARD DEVIATION IN NUMPY
+GIVEN:
+import numpy as np
+from data import nba_data, okcupid_data
+#Change these variables to be the standard deviation of each dataset. Use NumPy's function!
+nba_standard_deviation = 0
+okcupid_standard_deviation = 
+#IGNORE CODE BELOW HERE
+print("The standard deviation of the NBA dataset is " +str(nba_standard_deviation))
+print("The standard deviation of the OkCupid dataset is " + str(okcupid_standard_deviation))
+  2. We’ve removed the code that calculated the variance of each dataset. By using np.std() we don’t need to take that middle step anymore. Call np.std() using nba_data as a parameter, and 
+store the result in nba_standard_deviation. Make a similar function call using okcupid_data and store the result in okcupid_standard_deviation.
+//
+nba_standard_deviation = np.std(nba_data)                                RESULT: "The standard deviation of the NBA dataset is 3.6501704069810224"
+okcupid_standard_deviation = np.std(okcupid_data)                        RESULT: "The standard deviation of the OkCupid dataset is 3.924360330041063"
+
+                                        USING STANDARD DEVIATION
+GIVEN:
+import numpy as np
+from data import nba_data, okcupid_data
+nba_mean = np.mean(nba_data)
+okcupid_mean = np.mean(okcupid_data)
+nba_standard_deviation = np.std(nba_data)
+okcupid_standard_deviation = np.std(okcupid_data)
+/.../
+print("Your basketball player is " + str(num_nba_deviations) + " standard deviations away from the mean of NBA player heights\n")
+print("Your basketball player is " + str(num_okcupid_deviations) + " standard deviations away from the mean of OkCupid profile heights")
+  3. Let’s find out how many standard deviations away from the mean NBA great Lebron James is. To begin, let’s find the difference between Lebron’s height (80 inches) and the mean of each 
+dataset. Set nba_difference equal to 80 minus nba_mean. Find the difference between Lebron’s height and the OkCupid mean and store it in okcupid_difference. The OkCupid dataset’s mean is 
+stored in okcupid_mean.
+//
+nba_difference = 80 - nba_mean
+okcupid_difference = 80 - okcupid_mean
+  4. We now want to find out how many times the standard deviation goes into those differences. Set num_nba_deviations equal to nba_difference divided by nba_standard_deviation. Do a 
+similar calculation for num_okcupid_deviations. What does that first number tell you about how unusual Lebron James is in the NBA? What does the second number tell you about how unusual 
+Lebron James is in the dating pool?
+//
+num_nba_deviations = nba_difference / nba_standard_deviation              RESULT: "Your basketball player is 0.5523029818400713 standard deviations away from the mean of NBA player heights"
+num_okcupid_deviations = okcupid_difference / okcupid_standard_deviation  RESULT: "Your basketball player is 2.9523282842579257 standard deviations away from the mean of OkCupid profile heights"
+  5. Let’s check another NBA player. Earl Boykins is one of the smaller NBA players in history at 5’5” (65 inches). Replace Lebron James’ 80 inches with Earl Boykins’ 65. What can you say 
+about how unusual Earl Boykins is with respect to the two different datasets? We were surprised that Boykins wasn’t more standard deviations away from the mean of the OkCupid dataset. 
+Think about why he isn’t more of an outlier in this dataset.
+//
+...
+nba_difference = 65 - nba_mean                            RESULT: "Your basketball player is -3.5570942044699723 standard deviations away from the mean of NBA player heights"
+okcupid_difference = 65 - okcupid_mean                    RESULT: "Your basketball player is -0.8699506958792131 standard deviations away from the mean of OkCupid profile heights"
+...
+
+                                        REVIEW
+  1. We’ve created a visualization that shows the mean, first, second, and third standard deviations of each dataset. Enter your height (in inches) into the variable named your_height to 
+see how you compare to the heights of NBA players and OkCupid daters! You’re likely below the first standard deviation for the NBA. Are you below the second? How unusual is your height 
+compared to the OkCupid members?
+//
+import codecademylib3_seaborn
+import matplotlib.pyplot as plt
+import numpy as np
+from data import nba_data, okcupid_data
+nba_mean = np.mean(nba_data)
+okcupid_mean = np.mean(okcupid_data)
+#Change this variable to your height (in inches)!
+your_height = 65
+nba_standard_deviation = np.std(nba_data)
+okcupid_standard_deviation = np.std(okcupid_data)
+plt.subplot(211)
+plt.title("NBA Player Heights")
+plt.xlabel("Height (inches)")
+plt.hist(nba_data)
+plt.axvline(nba_mean, color='#FD4E40', linestyle='solid', linewidth=2, label = "Mean")
+plt.axvline(nba_mean + nba_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2, label = "Standard Deviations")
+plt.axvline(nba_mean - nba_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean + nba_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean - nba_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean + nba_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean - nba_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(your_height, color='#62EDBF', linestyle='solid', linewidth=2, label = "You")
+plt.xlim(55, 90)
+plt.legend()
+plt.subplot(212)
+plt.title("OkCupid Profile Heights")
+plt.xlabel("Height (inches)")
+plt.hist(okcupid_data)
+plt.axvline(okcupid_mean, color='#FD4E40', linestyle='solid', linewidth=2, label = "Mean")
+plt.axvline(okcupid_mean + okcupid_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2, label = "Standard Deviations")
+plt.axvline(okcupid_mean - okcupid_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean + okcupid_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean - okcupid_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean + okcupid_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean - okcupid_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(your_height, color='#62EDBF', linestyle='solid', linewidth=2, label = "You")
+plt.xlim(55, 90)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
