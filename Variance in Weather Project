@@ -19,6 +19,40 @@ print(london_data.iloc[10:20])                              RESULT:
   2. Let’s also take a look at how many data points we have. Print len(london_data)
 //
 print(len(london_data))                                     RESULT: 39106
+
+                                        LOOKING AT TEMPERATURES
   3. Now that we’ve seen what the data looks like, let’s dive into one of the more promising columns — "TemperatureC". This column stores the temperature in Celsius. To get a single column 
 from a DataFrame, you can use this syntax: one_column = london_data["column_name"]. Create a variable named temp and set it equal to the "TemperatureC" column of london_data.
 //
+temp = london_data['TemperatureC']
+  4. We can now calculate descriptive statistics about this column. To begin, find the average temperature in London in 2015. Store it in a variable named average_temp.
+//
+average_temp = np.mean(temp)
+print(average_temp)    )                                    RESULT: 12.081969518743925
+  5. Calculate the variance of the temperature column and store the results in the variable temperature_var. Print the results.
+//
+temperature_var = np.var(temp)
+print(temperature_var)
+  6. Calculate the standard deviation of the temperature column and store a variable named temperature_standard_deviation. Print this variable. How would the variance and standard deviation 
+help you plan a trip?
+//
+temperature_standard_deviation = np.std(temp)
+print(temperature_standard_deviation)
+
+                                        FILTERING BY MONTH
+  7. The statistics we just calculated aren’t very helpful when trying to plan a vacation since they describe the weather throughout an entire year. If we could find a way to use the rows 
+from only a certain month, that might help us find the best month to plan our trip. Once again, print london_data.head() to see the first few columns of our DataFrame. Which column will 
+help us get only the data points from January? In the browser you can scroll to the right to see more columns.
+//
+print(london_data.head())                                   RESULT:
+                                                            Time	                TemperatureC	DewpointC	PressurehPa	WindDirection	WindDirectionDegrees	WindSpeedKMH	WindSpeedGustKMH	Humidity	HourlyPrecipMM	Conditions	Clouds	dailyrainMM	SoftwareType	      DateUTC	              station    	hour	month
+                                                          0	2015-01-01 00:00:00	  4.6	          2.9	      1031.7    	West	        273	                  0.0	          1.6	              89	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 00:00:00	  ILONDONL28	0	    1
+                                                          1	2015-01-01 00:12:00  	4.5	          2.8      	1031.4	    WNW	          291	                  0.0	          1.6	              89	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 00:12:00	  ILONDONL28	0	    1
+                                                          2	2015-01-01 00:27:00  	4.5	          2.8      	1031.0	    SW	          229	                  0.0	          1.6	              89	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 00:27:00	  ILONDONL28	0	    1
+                                                          3	2015-01-01 00:42:00  	4.8	          3.2      	1031.7    	West	        281	                  0.0	          4.8	              89	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 00:42:00	  ILONDONL28	0	    1
+                                                          4	2015-01-01 00:57:00  	5.2	          3.5      	1031.4	    NW	          309	                  0.0	          1.6	              89	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 00:57:00	  ILONDONL28	0	    1
+  8. We want to filter by the "month" column! The following line of code will create a variable that gets the temperature from the rows where "month" is 6. These will be all of the rows from 
+the month of June. june = london_data.loc[london_data["month"] == 6]["TemperatureC"] Create this variable for June.
+//
+
+
