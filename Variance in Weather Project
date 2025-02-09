@@ -54,5 +54,19 @@ print(london_data.head())                                   RESULT:
   8. We want to filter by the "month" column! The following line of code will create a variable that gets the temperature from the rows where "month" is 6. These will be all of the rows from 
 the month of June. june = london_data.loc[london_data["month"] == 6]["TemperatureC"] Create this variable for June.
 //
-
+june = london_data.loc[london_data['month'] == 6]['TemperatureC']
+  9. Create a variable named july that contains all of the data points from July. The code to do this should look very similar to your code that created the June variable. This time, we’re 
+interested in month 7.
+//
+july = london_data.loc[london_data['month'] == 7]['TemperatureC']
+  10. Calculate and print the mean temperature in London for both June and July using the np.mean() function. What do these numbers tell you? If you wanted to visit London on the month that 
+was, on average, cooler, which month would you pick? Look at the hint to see our thoughts!
+//
+print(np.mean(june))                                         RESULT: 17.04728925101849
+print(np.mean(july))                                         RESULT: 18.775608907446067
+  11. Calculate and print the standard deviation of temperature in London for both June and July. Remember, the function you should use is np.std(). What do these numbers tell you? How 
+might the standard deviation change your decision on when to visit London? Click on the hint to see our thoughts.
+//
+print(np.std(june))                                          RESULT: 4.59790920465179
+print(np.std(july))                                          RESULT: 4.136377318662113
 
