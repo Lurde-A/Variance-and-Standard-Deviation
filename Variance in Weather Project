@@ -4,3 +4,21 @@ the columns of this dataset. Here are two questions to ask yourself: How often w
 to see different rows of the data, you can try something like this: print(london_data.iloc[100:200]) This will print rows 100 through 199. Comment out these print statements after looking 
 through the results.
 //
+print(london_data.iloc[10:20])                              RESULT:
+                                                            Time	                TemperatureC	DewpointC	PressurehPa	WindDirection	WindDirectionDegrees	WindSpeedKMH	WindSpeedGustKMH	Humidity	HourlyPrecipMM	Conditions	Clouds	dailyrainMM	SoftwareType	      DateUTC	              station    	hour	month
+                                                        10	2015-01-01 02:27:00	  6.0	          4.5      	1030.7	    ENE	          61	                  0.0	          1.6	              90	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 02:27:00	  ILONDONL28	2	    1
+                                                        11	2015-01-01 02:42:00  	6.1	          4.6	      1031.0	    South	        188	                  0.0	          1.6	              90	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 02:42:00	  ILONDONL28	2	    1
+                                                        12	2015-01-01 02:57:00  	6.2	          4.7	      1031.0	    ESE          	118	                  0.0	          0.0	              90	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 02:57:00	  ILONDONL28	2	    1
+                                                        13	2015-01-01 03:12:00	  6.2	          4.9	      1030.7    	East        	91	                  0.0	          0.0	              91	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 03:12:00	  ILONDONL28	3	    1
+                                                        14	2015-01-01 03:27:00	  6.2	          5.0	      1030.7	    ESE          	116	                  0.0	          8.0	              92	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 03:27:00	  ILONDONL28	3	    1
+                                                        15	2015-01-01 03:42:00	  6.4	          5.0	      1030.4	    SW	          228	                  3.2	          6.4	              91	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 03:42:00	  ILONDONL28	3	    1
+                                                        16	2015-01-01 03:57:00	  6.6	          5.4	      1030.4	    SSW          	204	                  0.0	          1.6	              92	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 03:57:00	  ILONDONL28	3	    1
+                                                        17	2015-01-01 04:12:00	  6.8	          5.4	      1030.4	    SSW          	209	                  0.0	          3.2	              91	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 04:12:00	  ILONDONL28	4	    1
+                                                        18	2015-01-01 04:27:00	  6.9	          5.6	      1030.0	    WSW	          241	                  0.0	          1.6	              91	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 04:27:00	  ILONDONL28	4	    1
+                                                        19	2015-01-01 04:42:00	  7.2	          5.8	      1030.0	    East	        94	                  1.6	          3.2	              91	      0.0	            nan	        nan	    0.0	        WeatherCatV1.24B11	2015-01-01 04:42:00	  ILONDONL28	4	    1
+  2. Let’s also take a look at how many data points we have. Print len(london_data)
+//
+print(len(london_data))                                     RESULT: 39106
+  3. Now that we’ve seen what the data looks like, let’s dive into one of the more promising columns — "TemperatureC". This column stores the temperature in Celsius. To get a single column 
+from a DataFrame, you can use this syntax: one_column = london_data["column_name"]. Create a variable named temp and set it equal to the "TemperatureC" column of london_data.
+//
